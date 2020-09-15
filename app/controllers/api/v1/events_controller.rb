@@ -12,8 +12,9 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def create
-        @event = Event.new(event_params)
-        if @event.save
+        # p params
+        @event = Event.create(event: params["event"], event_type: params["event_type"], user_id: params["user_id"])
+        if @event
             render json: @event
         else
             render error: { error: 'Event not created.' }, status: 400
