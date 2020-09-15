@@ -993,3 +993,135 @@ Processing by Api::V1::EventsController#index as HTML
 Completed 200 OK in 16ms (Views: 3.6ms | ActiveRecord: 12.2ms | Allocations: 1081)
 
 
+Started PUT "/api/v1/users/9/events" for ::1 at 2020-09-15 11:57:35 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/users/9/events"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PUT "/api/v1/users/9/events/5" for ::1 at 2020-09-15 11:57:59 -0400
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"event"=>"javelin", "event_type"=>"field", "user_id"=>"9", "id"=>"5"}
+  [1m[36mEvent Load (3.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:47:in `find_event'
+Completed 500 Internal Server Error in 336ms (ActiveRecord: 264.0ms | Allocations: 6511)
+
+
+  
+NoMethodError (undefined method `permit' for "javelin":String):
+  
+app/controllers/api/v1/events_controller.rb:43:in `event_params'
+app/controllers/api/v1/events_controller.rb:26:in `update'
+Started PUT "/api/v1/users/9/events/5" for ::1 at 2020-09-15 11:59:08 -0400
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"event"=>"javelin", "event_type"=>"field", "user_id"=>"9", "id"=>"5"}
+Completed 400 Bad Request in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 186)
+
+
+Started PUT "/api/v1/users/9/events/5" for ::1 at 2020-09-15 11:59:58 -0400
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"event"=>"javelin", "event_type"=>"field", "user_id"=>"9", "id"=>"5"}
+Completed 400 Bad Request in 4ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 159)
+
+
+Started PUT "/api/v1/users/9/events/5" for ::1 at 2020-09-15 12:01:36 -0400
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"event"=>"javelin", "event_type"=>"field", "user_id"=>"9", "id"=>"5"}
+Completed 400 Bad Request in 3ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 161)
+
+
+Started PUT "/api/v1/users/9/events/5" for ::1 at 2020-09-15 12:03:14 -0400
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"event"=>"javelin", "event_type"=>"field", "user_id"=>"9", "id"=>"5"}
+Completed 400 Bad Request in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 114)
+
+
+Started PUT "/api/v1/users/9/events/5" for ::1 at 2020-09-15 12:05:21 -0400
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"event"=>"javelin", "event_type"=>"field", "user_id"=>"9", "id"=>"5"}
+  [1m[36mEvent Load (1.4ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+  [1m[36mUser Load (82.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+  [1m[36mEvent Update (31.3ms)[0m  [1m[33mUPDATE "events" SET "id" = $1, "event" = $2, "user_id" = $3, "updated_at" = $4 WHERE "events"."id" = $5[0m  [["id", 5], ["event", "javelin"], ["user_id", 9], ["updated_at", "2020-09-15 16:05:22.043183"], ["id", 2]]
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+  [1m[35m (21.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+Completed 500 Internal Server Error in 356ms (ActiveRecord: 212.3ms | Allocations: 13818)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "events_pkey"
+DETAIL:  Key (id)=(5) already exists.
+):
+  
+app/controllers/api/v1/events_controller.rb:25:in `update'
+Started PUT "/api/v1/users/9/events/5" for ::1 at 2020-09-15 12:07:56 -0400
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"event"=>"javelin", "event_type"=>"field", "user_id"=>"9", "id"=>"5"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+  [1m[36mEvent Update (1.7ms)[0m  [1m[33mUPDATE "events" SET "id" = $1, "event" = $2, "user_id" = $3, "updated_at" = $4 WHERE "events"."id" = $5[0m  [["id", 5], ["event", "javelin"], ["user_id", 9], ["updated_at", "2020-09-15 16:07:56.734870"], ["id", 2]]
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/events_controller.rb:25:in `update'
+Completed 500 Internal Server Error in 274ms (ActiveRecord: 137.4ms | Allocations: 12489)
+
+
+  
+ActiveRecord::RecordNotUnique (PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "events_pkey"
+DETAIL:  Key (id)=(5) already exists.
+):
+  
+app/controllers/api/v1/events_controller.rb:25:in `update'
+Started PUT "/api/v1/users/9/events/5" for ::1 at 2020-09-15 12:09:44 -0400
+Processing by Api::V1::EventsController#update as */*
+  Parameters: {"event"=>"javelin", "event_type"=>"field", "user_id"=>"9", "id"=>"5"}
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:47:in `find_event'
+  [1m[35m (4.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26:in `update'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:26:in `update'
+  [1m[36mEvent Update (0.8ms)[0m  [1m[33mUPDATE "events" SET "event" = $1, "updated_at" = $2 WHERE "events"."id" = $3[0m  [["event", "javelin"], ["updated_at", "2020-09-15 16:09:44.842154"], ["id", 5]]
+  ↳ app/controllers/api/v1/events_controller.rb:26:in `update'
+  [1m[35m (23.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26:in `update'
+Completed 200 OK in 125ms (Views: 0.3ms | ActiveRecord: 69.5ms | Allocations: 12241)
+
+
+Started GET "/api/v1/users/9/events" for ::1 at 2020-09-15 12:09:51 -0400
+Processing by Api::V1::EventsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/api/v1/events_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1079)
+
+

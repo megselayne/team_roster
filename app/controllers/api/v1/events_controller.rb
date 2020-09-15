@@ -1,5 +1,5 @@
 class Api::V1::EventsController < ApplicationController
-    before_action :find_event, only: [ :update, :destroy]
+    before_action :find_event, only: [ :update, :destroy ]
 
     def index
         @events = Event.where(user_id: params[:user_id])
@@ -23,7 +23,7 @@ class Api::V1::EventsController < ApplicationController
 
     def update
         if @event
-            @event.update(event_params)
+            @event.update(event: params["event"], event_type: params["event_type"])
             render json: { message: 'Event updated!' }, status: 200
         else
             render json: { error: 'Could not update event.' }, status: 400
