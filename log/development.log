@@ -1125,3 +1125,189 @@ Processing by Api::V1::EventsController#index as HTML
 Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1079)
 
 
+Started DELETE "/api/v1/users/9/events/5" for ::1 at 2020-09-15 12:22:20 -0400
+Processing by Api::V1::EventsController#destroy as */*
+  Parameters: {"user_id"=>"9", "id"=>"5"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:47:in `find_event'
+  [1m[35m (33.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:35:in `destroy'
+  [1m[36mEvent Destroy (6.3ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 5]]
+  ↳ app/controllers/api/v1/events_controller.rb:35:in `destroy'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:35:in `destroy'
+Completed 400 Bad Request in 54ms (Views: 0.2ms | ActiveRecord: 43.3ms | Allocations: 2674)
+
+
+Started GET "/api/v1/users/9/events" for ::1 at 2020-09-15 12:22:27 -0400
+Processing by Api::V1::EventsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/api/v1/events_controller.rb:6:in `index'
+Completed 200 OK in 38ms (Views: 35.9ms | ActiveRecord: 0.4ms | Allocations: 926)
+
+
+Started POST "/api/v1/users/9/events/5" for ::1 at 2020-09-15 12:23:34 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/users/9/events/5"):
+  
+actionpack (6.0.3.3) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.3) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.3) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.3) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.3) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.3) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/api/v1/users/9/events" for ::1 at 2020-09-15 12:23:43 -0400
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"event"=>"Javelin", "event_type"=>"field", "user_id"=>"9"}
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:16:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:16:in `create'
+  [1m[36mEvent Create (1.4ms)[0m  [1m[32mINSERT INTO "events" ("user_id", "event", "event_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 9], ["event", "Javelin"], ["event_type", "field"], ["created_at", "2020-09-15 16:23:43.596543"], ["updated_at", "2020-09-15 16:23:43.596543"]]
+  ↳ app/controllers/api/v1/events_controller.rb:16:in `create'
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:16:in `create'
+Completed 200 OK in 59ms (Views: 0.5ms | ActiveRecord: 16.0ms | Allocations: 3848)
+
+
+Started GET "/api/v1/users/9/events" for ::1 at 2020-09-15 12:23:51 -0400
+Processing by Api::V1::EventsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/api/v1/events_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 1044)
+
+
+Started GET "/api/v1/users" for ::1 at 2020-09-15 12:25:47 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (14.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 24ms (Views: 7.1ms | ActiveRecord: 14.2ms | Allocations: 1202)
+
+
+Started GET "/api/v1/users/9" for ::1 at 2020-09-15 12:25:55 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `show'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 856)
+
+
+Started PUT "/api/v1/users/9" for ::1 at 2020-09-15 12:27:35 -0400
+Processing by Api::V1::UsersController#update as */*
+  Parameters: {"username"=>"meg", "password"=>"[FILTERED]", "id"=>"9", "user"=>{"username"=>"meg", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:28:in `update'
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "password" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["username", "meg"], ["password", "megpass"], ["updated_at", "2020-09-15 16:27:35.415328"], ["id", 9]]
+  ↳ app/controllers/api/v1/users_controller.rb:28:in `update'
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:28:in `update'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 7.0ms | Allocations: 3079)
+
+
+Started GET "/api/v1/users/9" for ::1 at 2020-09-15 12:27:40 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 749)
+
+
+Started DELETE "/api/v1/users/9" for ::1 at 2020-09-15 12:28:26 -0400
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (42.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `destroy'
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:39:in `destroy'
+  [1m[36mUser Destroy (43.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/api/v1/users_controller.rb:39:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/users_controller.rb:39:in `destroy'
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 87.1ms | Allocations: 2627)
+
+
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "users" violates foreign key constraint "fk_rails_0cb5590091" on table "events"
+DETAIL:  Key (id)=(9) is still referenced from table "events".
+):
+  
+app/controllers/api/v1/users_controller.rb:39:in `destroy'
+Started GET "/api/v1/users/9" for ::1 at 2020-09-15 12:28:55 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 748)
+
+
+Started GET "/api/v1/users/9/events" for ::1 at 2020-09-15 12:29:27 -0400
+Processing by Api::V1::EventsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mEvent Load (4.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/api/v1/events_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 3.6ms | ActiveRecord: 4.5ms | Allocations: 1044)
+
+
+Started DELETE "/api/v1/users/9/events/6" for ::1 at 2020-09-15 12:29:39 -0400
+Processing by Api::V1::EventsController#destroy as */*
+  Parameters: {"user_id"=>"9", "id"=>"6"}
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:47:in `find_event'
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:35:in `destroy'
+  [1m[36mEvent Destroy (6.7ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/api/v1/events_controller.rb:35:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:35:in `destroy'
+Completed 400 Bad Request in 16ms (Views: 0.2ms | ActiveRecord: 9.8ms | Allocations: 2566)
+
+
+Started GET "/api/v1/users/9/events" for ::1 at 2020-09-15 12:29:45 -0400
+Processing by Api::V1::EventsController#index as HTML
+  Parameters: {"user_id"=>"9"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 9]]
+  ↳ app/controllers/api/v1/events_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 922)
+
+
+Started DELETE "/api/v1/users/9" for ::1 at 2020-09-15 12:29:49 -0400
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:37:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:39:in `destroy'
+  [1m[36mUser Destroy (8.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/api/v1/users_controller.rb:39:in `destroy'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:39:in `destroy'
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 11.5ms | Allocations: 2545)
+
+
+Started GET "/api/v1/users" for ::1 at 2020-09-15 12:29:55 -0400
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 1067)
+
+
