@@ -1,5 +1,5 @@
 class Api::V1::EventsController < ApplicationController
-    before_action :find_event, only: [:show, :update, :destroy]
+    before_action :find_event, only: [ :update, :destroy]
 
     def index
         @events = Event.where(user_id: params[:user_id])
@@ -7,6 +7,7 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def show
+        @event = Event.where(user_id: params[:user_id], id: params[:id])
         render json: @event
     end
 
@@ -42,6 +43,6 @@ class Api::V1::EventsController < ApplicationController
     end
 
     def find_event
-        @event = Event.where(user_id: params[:user_id], id: params[:id])
+        @event = Event.find(params[:id])
     end
 end

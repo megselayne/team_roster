@@ -671,3 +671,113 @@ Processing by Api::V1::UsersController#index as HTML
 Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 1067)
 
 
+Started DELETE "/api/v1/users/7/events/1" for ::1 at 2020-09-14 20:44:12 -0400
+Processing by Api::V1::EventsController#destroy as */*
+  Parameters: {"answer"=>"Setting up the viewport (assuming you're referring to the meta tag) allows the document to know how to behave depending on the different screen sizes. It's useful for responsive design.", "user_id"=>"7", "id"=>"1", "event"=>{}}
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 281)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/api/v1/events_controller.rb:33:in `destroy'
+Started DELETE "/api/v1/users/7/events/1" for ::1 at 2020-09-14 20:44:34 -0400
+Processing by Api::V1::EventsController#destroy as */*
+  Parameters: {"user_id"=>"7", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 189)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/controllers/api/v1/events_controller.rb:33:in `destroy'
+Started GET "/api/v1/users/7" for ::1 at 2020-09-14 20:45:17 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `show'
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 748)
+
+
+Started GET "/api/v1/users/7/events" for ::1 at 2020-09-14 20:45:18 -0400
+Processing by Api::V1::EventsController#index as HTML
+  Parameters: {"user_id"=>"7"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 7]]
+  ↳ app/controllers/api/v1/events_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1166)
+
+
+Started GET "/api/v1/users/7/events/1" for ::1 at 2020-09-14 20:45:20 -0400
+Processing by Api::V1::EventsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1 AND "events"."id" = $2[0m  [["user_id", 7], ["id", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms | Allocations: 1074)
+
+
+Started DELETE "/api/v1/users/7/events/1" for ::1 at 2020-09-14 20:47:32 -0400
+Processing by Api::V1::EventsController#destroy as */*
+  Parameters: {"user_id"=>"7", "id"=>"1"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:45:in `find_event'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:33:in `destroy'
+  [1m[36mEvent Destroy (0.6ms)[0m  [1m[31mDELETE FROM "events" WHERE "events"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:33:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:33:in `destroy'
+Completed 400 Bad Request in 54ms (Views: 0.2ms | ActiveRecord: 34.0ms | Allocations: 7285)
+
+
+Started GET "/api/v1/users/7/events/1" for ::1 at 2020-09-14 20:48:40 -0400
+Processing by Api::V1::EventsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"1"}
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 1140)
+
+
+Started GET "/api/v1/users/7/events/2" for ::1 at 2020-09-14 20:48:49 -0400
+Processing by Api::V1::EventsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"2"}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 157)
+
+
+Started GET "/api/v1/users/7/events/2" for ::1 at 2020-09-14 20:48:58 -0400
+Processing by Api::V1::EventsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"2"}
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1 AND "events"."id" = $2[0m  [["user_id", 7], ["id", 2]]
+  ↳ app/controllers/api/v1/events_controller.rb:11:in `show'
+Completed 200 OK in 25ms (Views: 18.4ms | ActiveRecord: 3.9ms | Allocations: 5645)
+
+
+Started GET "/api/v1/users/7/events/1" for ::1 at 2020-09-14 20:49:01 -0400
+Processing by Api::V1::EventsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1 AND "events"."id" = $2[0m  [["user_id", 7], ["id", 1]]
+  ↳ app/controllers/api/v1/events_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms | Allocations: 946)
+
+
+Started GET "/api/v1/users/7/events/2" for ::1 at 2020-09-14 20:49:04 -0400
+Processing by Api::V1::EventsController#show as HTML
+  Parameters: {"user_id"=>"7", "id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1 AND "events"."id" = $2[0m  [["user_id", 7], ["id", 2]]
+  ↳ app/controllers/api/v1/events_controller.rb:11:in `show'
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/users/8/events" for ::1 at 2020-09-14 20:49:10 -0400
+Processing by Api::V1::EventsController#index as HTML
+  Parameters: {"user_id"=>"8"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1[0m  [["user_id", 8]]
+  ↳ app/controllers/api/v1/events_controller.rb:6:in `index'
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.5ms | Allocations: 1166)
+
+
+Started GET "/api/v1/users/8/events/4" for ::1 at 2020-09-14 20:49:16 -0400
+Processing by Api::V1::EventsController#show as HTML
+  Parameters: {"user_id"=>"8", "id"=>"4"}
+  [1m[36mEvent Load (3.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."user_id" = $1 AND "events"."id" = $2[0m  [["user_id", 8], ["id", 4]]
+  ↳ app/controllers/api/v1/events_controller.rb:11:in `show'
+Completed 200 OK in 10ms (Views: 5.3ms | ActiveRecord: 3.8ms | Allocations: 1068)
+
+
